@@ -1,6 +1,51 @@
 body {
-  background: #dcd4f0;
+  background: linear-gradient(-45deg, #e5d9f2, #f5e6fa, #dcd4f0, #d4c4fb);
+  background-size: 400% 400%;
+  animation: gradient 15s ease infinite;
   text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Floating shapes */
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" opacity="0.08"><path d="M50,50 Q75,25 100,50 T150,50 T200,100 T150,150 T100,200 T50,150 T0,100 T50,50 Z" fill="%23af76dd"/><circle cx="150" cy="50" r="20" fill="%23885df1"/><rect x="20" y="120" width="40" height="40" fill="%233201b1"/></svg>');
+  z-index: -1;
+  animation: float 25s linear infinite;
+}
+
+/* Keyframes */
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@keyframes float {
+  0% {
+    transform: translate(0, 0) rotate(0deg);
+  }
+  25% {
+    transform: translate(-5vw, 10vh) rotate(10deg);
+  }
+  50% {
+    transform: translate(5vw, 20vh) rotate(20deg);
+  }
+  100% {
+    transform: translate(0, 0) rotate(0deg);
+  }
 }
 
 a {
@@ -10,6 +55,27 @@ a {
 .container {
   margin: 120px auto;
   max-width: 600px;
+}
+
+.dark-mode {
+  background: #3f3f6d;
+  color: #fff;
+}
+.dark-mode .form-container {
+  background: #515183;
+}
+.dark-mode .instructions {
+  background: #141425;
+  color: #fff;
+}
+.dark-mode h1 {
+  background: #1a1a2b;
+  color: #fff;
+}
+
+.dark-mode .submit-button {
+  background: #2c2c3d;
+  color: #fff;
 }
 
 header {

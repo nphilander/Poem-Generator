@@ -26,3 +26,11 @@ function generatePoem(e) {
 
 let poemFormElement = document.querySelector("#poem-generator-form");
 poemFormElement.addEventListener("submit", generatePoem);
+
+let toggleButton = document.querySelector("#theme-toggle");
+toggleButton.addEventListener("click", () => {
+  document.body.classList.toggle("dark-mode");
+  toggleButton.textContent = document.body.classList.contains("dark-mode")
+    ? "☀️"
+    : "🌙";
+});
